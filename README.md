@@ -1,0 +1,3 @@
+# fakesnak
+
+Fake news detector.

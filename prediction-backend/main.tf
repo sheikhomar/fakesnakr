@@ -73,6 +73,15 @@ resource aws_lambda_function lambda {
   timeout = 300
 }
 
+resource aws_lambda_function_url lambda {
+  function_name      = aws_lambda_function.lambda.function_name
+  authorization_type = "NONE"
+}
+
 output "lambda_name" {
- value = aws_lambda_function.lambda.id
+  value = aws_lambda_function.lambda.id
+}
+
+output "lambda_url" {
+  value = aws_lambda_function_url.lambda.function_url
 }

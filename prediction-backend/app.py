@@ -1,9 +1,20 @@
 import sys
 
 def handler(event, context):
-    if event['httpMethod'] == 'GET':
+    params = {}
+    if "queryStringParameters" in event:
+        params = event["queryStringParameters"]
+    elif "body" in event:
+        params = event["body"]
+
+    if len(params) == 0:
         return {
-            'statusCode': 200,
-            'body': 'We received a GET request.'
+            "status": "failed",
+            "message": "No parameters found"
         }
-    return event
+
+    return {
+        "status": "success",
+        "message": "Parameters found",
+        "params": params
+    }

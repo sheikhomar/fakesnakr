@@ -19,3 +19,16 @@ docker run -it --rm -p 9000:8080 $IMAGE_NAME
 # Test the local endpoint
 curl -XPOST "http://localhost:9000/2015-03-31/functions/function/invocations" -d '{}'
 ```
+
+Deploying via Terraform:
+
+```bash
+# Define AWS region and creditials
+export AWS_REGION=eu-west-2
+export AWS_FAKESNAKR_KEY=<AWS_ACCESS_KEY_ID>
+export AWS_FAKESNAKR_SECRET=<AWS_SECRET_ACCESS_KEY>
+terraform init
+# terraform plan
+terraform apply -auto-approve
+# terraform destroy
+```

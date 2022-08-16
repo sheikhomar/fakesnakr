@@ -1,4 +1,9 @@
 import sys
 
 def handler(event, context):
-    return 'Hello from AWS Lambda using Python' + sys.version + '!'   
+    if event['httpMethod'] == 'GET':
+        return {
+            'statusCode': 200,
+            'body': 'We received a GET request.'
+        }
+    return event

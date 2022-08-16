@@ -19,6 +19,7 @@ contractions = "^0.1.72"
 jupyterlab = "^3.4.5"
 ipywidgets = "^7.7.1"
 jupyter-dash = "^0.4.2"
+huggingface-hub = "^0.8.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
